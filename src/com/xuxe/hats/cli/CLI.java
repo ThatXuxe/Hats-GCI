@@ -5,6 +5,7 @@ import com.xuxe.hats.HatManager;
 import com.xuxe.hats.Hats;
 import com.xuxe.hats.pojos.Hat;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class CLI {
@@ -18,8 +19,15 @@ public class CLI {
     }
     private static void initMenu() {
         Menu.addMenuItem("info",()->{
-            if(Hats.person.isWearing())
-                System.out.println(Hats.person.getHat());
+            if(Hats.person.isWearing()) {
+                Hat hat = Hats.person.getHat();
+                System.out.println("You are wearing: " + hat.getName()+ "\n" +
+                        hat.getName() +" is from " + hat.getOrigin());
+                System.out.print("\nIt is used in: ");
+                hat.getTypes().forEach(hatType -> System.out.print(hatType.toString().toLowerCase()+" "));
+                System.out.println("settings.");
+                System.out.println(hat.getInformation());
+            }
             else
                 System.out.println("You are not currently wearing a hat.");
         });
@@ -49,6 +57,14 @@ public class CLI {
             System.out.println("Which hat do you want to get rid of?");
             String hat = sc.nextLine();
             new HatManager().deleteHat(hat);
+        });
+        Menu.addMenuItem("list", ()->{
+            System.out.println("Available hats");
+            final int[] i = {0};
+            HatKeeper.getHats().forEach((s, hat) -> {
+                i[0]++;
+                System.out.println(i[0]+". "+s);
+            });
         });
     }
 }
