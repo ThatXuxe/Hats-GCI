@@ -6,7 +6,7 @@ import com.xuxe.hats.pojos.Person;
 import java.util.HashMap;
 
 public class HatKeeper {
-    public static HashMap<String, Hat> hats;
+    public static HashMap<String, Hat> hats = new HashMap<>();
     public static Person person;
 
     public static void addHat(String name, Hat hat) {

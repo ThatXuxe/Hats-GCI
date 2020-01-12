@@ -1,9 +1,9 @@
 package com.xuxe.hats.cli;
 
 import com.xuxe.hats.HatKeeper;
+import com.xuxe.hats.HatManager;
 import com.xuxe.hats.Hats;
 import com.xuxe.hats.pojos.Hat;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import java.util.Scanner;
 
@@ -12,11 +12,6 @@ public class CLI {
         Menu.show();
         Scanner sc = new Scanner(System.in);
         Menu.run(sc.nextLine().trim().toLowerCase());
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
     public static void initializeCLI() {
         initMenu();
@@ -44,5 +39,16 @@ public class CLI {
             System.out.println("You removed your hat");
         });
         Menu.addMenuItem("exit", ()->Hats.run=false);
+        Menu.addMenuItem("create", ()->{
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Welcome to HatMaker!");
+            new HatManager().makeHat();
+        });
+        Menu.addMenuItem("remove", ()->{
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Which hat do you want to get rid of?");
+            String hat = sc.nextLine();
+            new HatManager().deleteHat(hat);
+        });
     }
 }

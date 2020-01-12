@@ -1,10 +1,9 @@
 package com.xuxe.hats.cli;
 
-import javax.swing.tree.TreeNode;
 import java.util.HashMap;
 
 public class Menu {
-    private static HashMap<String, MenuItem> menu;
+    private static HashMap<String, MenuItem> menu = new HashMap<>();
 
     public static void show() {
         System.out.println("-==/ Menu \\==-");

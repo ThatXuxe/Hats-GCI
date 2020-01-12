@@ -3,8 +3,6 @@ package com.xuxe.hats;
 import com.xuxe.hats.cli.CLI;
 import com.xuxe.hats.pojos.Person;
 
-import java.util.Scanner;
-
 public class Hats {
     public static boolean run;
     public static Person person;
@@ -15,6 +13,7 @@ public class Hats {
         while (run) {
             CLI.runMenu();
         }
+        System.out.println("You have exited hats.");
     }
 }
 

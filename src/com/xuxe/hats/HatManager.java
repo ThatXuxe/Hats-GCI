@@ -15,8 +15,7 @@ public class HatManager {
             Hat hat = getHatInputs();
             // add hat to keeper
             HatKeeper.addHat(hat.getName(),hat);
-            System.out.println(" __ New har created!" +
-                    "_| |_");
+            System.out.println("New hat created!");
             return true;
         } catch (Exception e) {
             return false;
