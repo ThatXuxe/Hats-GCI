@@ -17,7 +17,10 @@ public class Menu {
     }
 
     public static void run(String name) {
-        menu.get(name).task.run();
+        if(menu.containsKey(name))
+            menu.get(name).task.run();
+        else
+            System.out.println("Incorrect option");
     }
 
     public static class MenuItem {
