@@ -6,6 +6,11 @@ import com.xuxe.hats.attributes.Wearable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Hat is the boilerplate class for Hat objects.
+ * Every hat is a new object, which is stored in HatKeeper
+ * This implements polymorphism, inheritance and abstraction
+ */
 public class Hat implements Wearable {
 
     public String getName() {

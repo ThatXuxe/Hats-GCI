@@ -8,16 +8,26 @@ import com.xuxe.hats.pojos.Hat;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * CLI class for command line related methods.
+ */
 public class CLI {
+    /**
+     * Shows the menu, accepts the input and runs the appropriate Runnable
+     */
     public static void runMenu() {
         Menu.show();
+        //Accept inputs for menu
         Scanner sc = new Scanner(System.in);
         Menu.run(sc.nextLine().trim().toLowerCase());
     }
+
+    /**
+     * Initialize menu options.
+     * static since it caters to the static Menu variable and runs once.
+     */
     public static void initializeCLI() {
-        initMenu();
-    }
-    private static void initMenu() {
+        //Add Menu items using Menu#addMenuItem(String name, Runnable task)
         Menu.addMenuItem("info",()->{
             if(Hats.person.isWearing()) {
                 Hat hat = Hats.person.getHat();

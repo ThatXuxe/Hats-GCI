@@ -8,17 +8,19 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This class is responsible for the creation, deletion and management of hats.
+ */
 public class HatManager {
-    public boolean makeHat() {
+    public void makeHat() {
         try {
-            // get hattributes (pun intended) from user
+            // get attributes from user
             Hat hat = getHatInputs();
             // add hat to keeper
             HatKeeper.addHat(hat.getName(),hat);
             System.out.println("New hat created!");
-            return true;
         } catch (Exception e) {
-            return false;
+            System.err.println("An error has occured: "+e.getLocalizedMessage());
         }
     }
     public void deleteHat(String name) {
@@ -29,6 +31,10 @@ public class HatManager {
         deleteHat(hat.getName());
     }
 
+    /**
+     * Gets user inputs through scanner to initialize a Hat object
+     * @return Initialized Hat object
+     */
     private Hat getHatInputs() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your hat's name:");
